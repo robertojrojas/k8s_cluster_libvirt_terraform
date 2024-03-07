@@ -11,8 +11,10 @@ ssh_pwauth: no
 
 users:
   - name: ubuntu
-    ssh_import_id:
-      - gh:${gh_user}
+    ssh_authorized_keys:
+      - ${ssh_public_key}
+        #ssh_import_id:
+        # - gh:${gh_user}
     shell: /bin/bash
     sudo: ALL=(ALL) NOPASSWD:ALL
 
@@ -72,3 +74,6 @@ runcmd:
   - apt -y autoclean
   - apt -y clean all
   - date -R > /root/Finished.txt
+
+mounts:
+  - [ shared, /shared, "9p", "trans=virtio version=9p2000.L", "rw", "0", "0" ]

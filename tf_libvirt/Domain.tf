@@ -13,6 +13,12 @@ resource "libvirt_domain" "domain-ubuntu" {
     wait_for_lease = true
   }
 
+  filesystem {
+    source   = "/mnt/ssd1/shared"
+    target   = "shared"
+    readonly = false
+  }
+
   console {
     target_type = "serial"
     type        = "pty"

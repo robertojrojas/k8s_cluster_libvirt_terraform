@@ -13,7 +13,10 @@ data "template_file" "user_data" {
     sshdport = each.value.ssh_port
     timezone = each.value.timezone
     gh_user  = each.value.gh_user
+    ssh_public_key = tls_private_key.ssh_key.public_key_openssh
   }
+
+  depends_on = [tls_private_key.ssh_key]
 }
 
 data "template_file" "network_config" {
