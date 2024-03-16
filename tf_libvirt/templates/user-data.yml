@@ -60,14 +60,14 @@ packages:
 # Update/Upgrade & Reboot if necessary
 package_update: true
 package_upgrade: true
-package_reboot_if_required: true
+# package_reboot_if_required: true
 
 # PostInstall
 runcmd:
   - figlet ${hostname} > /etc/motd
   - updatedb
   # Firewall
-  - ufw allow "${sshdport}"/tcp && ufw enable
+  # - ufw allow "${sshdport}"/tcp && ufw enable
   # Remove cloud-init
   - apt-get -y autoremove --purge cloud-init lxc lxd snapd
   - apt-get -y --purge autoremove
@@ -76,4 +76,4 @@ runcmd:
   - date -R > /root/Finished.txt
 
 mounts:
-  - [ shared, /shared, "9p", "trans=virtio version=9p2000.L", "rw", "0", "0" ]
+  - [ shared, /shared, "9p", "trans=virtio,version=9p2000.L,rw", "0", "0" ]
