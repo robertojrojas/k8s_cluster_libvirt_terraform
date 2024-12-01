@@ -14,7 +14,7 @@ resource "libvirt_domain" "domain-ubuntu" {
   }
 
   filesystem {
-    source   = "/mnt/ssd1/shared"
+    source   = var.fs_share
     target   = "shared"
     readonly = false
   }

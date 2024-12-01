@@ -1,0 +1,9 @@
+frontend http_front
+   bind *:443
+   stats uri /haproxy?stats
+   default_backend http_back
+
+backend http_back
+   balance roundrobin
+   option httpchk GET /healthz
+   http-check expect string ok

@@ -56,6 +56,7 @@ packages:
   - mlocate
   - ncdu
   - python3-apt
+  - at
 
 # Update/Upgrade & Reboot if necessary
 package_update: true

@@ -1,9 +1,14 @@
+variable "fs_share" {
+  type = string
+  default = "/home/rrojas/dev/practice/k8s/samples/kvm/k8s_cluster/fs_shared"
+}
+
 locals {
     # Virtual Machines
     VMs = {
         k8scpnode = {
             # The host name of the VM
-            hostname = "k8scpnode"
+            hostname = "k8scp-t7910-2"
 
             # The image source of the VM
             #cloud_image = "https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img"
@@ -33,7 +38,7 @@ locals {
 
         k8wrknode1 = {
             # The host name of the VM
-            hostname = "k8wrknode1"
+            hostname = "k8wrk-t7910-2-1"
 
             # The image source of the VM
             # cloud_image = "https://cloud-images.ubuntu.com/jammy/current/focal-server-cloudimg-amd64.img"
@@ -63,7 +68,7 @@ locals {
 
         k8wrknode2 = {
             # The host name of the VM
-            hostname = "k8wrknode2"
+            hostname = "k8wrk-t7910-2-2"
 
             # The image source of the VM
             # cloud_image = "../jammy-server-cloudimg-amd64.img"
@@ -93,7 +98,7 @@ locals {
 
         k8wrknode3 = {
             # The host name of the VM
-            hostname = "k8wrknode3"
+            hostname = "k8wrk-t7910-2-3"
 
             # The image source of the VM
             # cloud_image = "../jammy-server-cloudimg-amd64.img"
