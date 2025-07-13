@@ -1,18 +1,19 @@
-resource "libvirt_volume" "ubuntu-vol" {
-  for_each = local.VMs
+resource "libvirt_volume" "os-vol" {
+  for_each   = {for idx, vm in local.VMs: "${idx}-${vm.os}" => vm}
 
-  name = "${random_id.id[each.key].id}_ubuntu-vol"
+  name = "${random_id.id[each.key].id}_os-vol"
   pool = "default"
-  source = each.value.cloud_image
+  source = local.cloud_images[each.value.os]
   format = "qcow2"
 }
 
-resource "libvirt_volume" "ubuntu-base" {
-  for_each = local.VMs
+resource "libvirt_volume" "os-base" {
+  for_each   = {for idx, vm in local.VMs: "${idx}-${vm.os}" => vm}  
 
-  name           = "${random_id.id[each.key].id}_ubuntu-base"
+
+  name           = "${random_id.id[each.key].id}_os-base"
   pool           = "default"
-  base_volume_id = libvirt_volume.ubuntu-vol[each.key].id
-  size           = each.value.vol_size
+  base_volume_id = libvirt_volume.os-vol[each.key].id
+  size           = local.vm_spec[each.value.type].vol_size
   format         = "qcow2"
 }
