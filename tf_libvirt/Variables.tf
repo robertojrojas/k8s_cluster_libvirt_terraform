@@ -1,125 +1,45 @@
 locals {
-    # Virtual Machines
-    VMs = {
-        k8scpnode = {
-            # The host name of the VM
-            hostname = "k8scpnode"
 
-            # The image source of the VM
-            #cloud_image = "https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img"
-            cloud_image = "/home/rrojas/dev/practice/k8s/samples/kvm/k8s_cluster/images/jammy-server-cloudimg-amd64.img"
+    ssh_prv_key = "${pathexpand("~/.ssh/id_rsa")}"
+    ssh_pub_key = "${pathexpand("~/.ssh/id_rsa.pub")}"
 
-            # TimeZone of the VM: /usr/share/zoneinfo/
-            timezone    = "America/New_York"
+    # Run own/k8s_cluster_libvirt_terraform/images/download_cloud_images.sh
+    etc_hosts_extra_script_path = "/usr/local/bin/etc_hosts_extra.sh"
+    k8s_kubeadm_script_path     = "/usr/local/bin/kubeadm_script.sh"
 
-            # The sshd port of the VM
-            ssh_port    = 22
-
-            # The default ssh key for user ubuntu
-            # https://github.com/<username>.keys
-            gh_user = "robertojrojas"
-
-            # The disk volume size of the VM
-            # eg. 20G
-            vol_size = 20 * 1024 * 1024 * 1024
-
-            # How many virtual CPUs the VM
-            vcpu = 8 
-
-            # How RAM will VM have will have
-            vmem = 8 * 1024
-
-        },
-
-        k8wrknode1 = {
-            # The host name of the VM
-            hostname = "k8wrknode1"
-
-            # The image source of the VM
-            # cloud_image = "https://cloud-images.ubuntu.com/jammy/current/focal-server-cloudimg-amd64.img"
-            cloud_image = "/home/rrojas/dev/practice/k8s/samples/kvm/k8s_cluster/images/jammy-server-cloudimg-amd64.img"
-
-            # TimeZone of the VM: /usr/share/zoneinfo/
-            timezone    = "America/New_York"
-
-            # The sshd port of the VM
-            ssh_port    = 22
-
-            # The default ssh key for user ubuntu
-            # https://github.com/<username>.keys
-            gh_user = "robertojrojas"
-
-            # The disk volume size of the VM
-            # eg. 40G
-            vol_size = 40 * 1024 * 1024 * 1024
-
-            # How many virtual CPUs the VM
-            vcpu = 8 
-
-            # How RAM will VM have will have
-            vmem = 8 * 1024
-
-        },
-
-        k8wrknode2 = {
-            # The host name of the VM
-            hostname = "k8wrknode2"
-
-            # The image source of the VM
-            # cloud_image = "../jammy-server-cloudimg-amd64.img"
-            cloud_image = "/home/rrojas/dev/practice/k8s/samples/kvm/k8s_cluster/images/jammy-server-cloudimg-amd64.img"
-
-            # TimeZone of the VM: /usr/share/zoneinfo/
-            timezone    = "America/New_York"
-
-            # The sshd port of the VM
-            ssh_port    = 22
-
-            # The default ssh key for user ubuntu
-            # https://github.com/<username>.keys
-            gh_user = "robertojrojas"
-
-            # The disk volume size of the VM
-            # eg. 40G
-            vol_size = 40 * 1024 * 1024 * 1024
-
-            # How many virtual CPUs the VM
-            vcpu = 8 
-
-            # How RAM will VM have will have
-            vmem = 8 * 1024
-
-        }
-
-        k8wrknode3 = {
-            # The host name of the VM
-            hostname = "k8wrknode3"
-
-            # The image source of the VM
-            # cloud_image = "../jammy-server-cloudimg-amd64.img"
-            cloud_image = "/home/rrojas/dev/practice/k8s/samples/kvm/k8s_cluster/images/jammy-server-cloudimg-amd64.img"
-
-            # TimeZone of the VM: /usr/share/zoneinfo/
-            timezone    = "America/New_York"
-
-            # The sshd port of the VM
-            ssh_port    = 22
-
-            # The default ssh key for user ubuntu
-            # https://github.com/<username>.keys
-            gh_user = "robertojrojas"
-
-            # The disk volume size of the VM
-            # eg. 40G
-            vol_size = 40 * 1024 * 1024 * 1024
-
-            # How many virtual CPUs the VM
-            vcpu = 8
-
-            # How RAM will VM have will have
-            vmem = 8 * 1024
-
-        }
-
+    cloud_images = {
+        ubuntu = "../images/ubuntu/oracular-server-cloudimg-amd64.img",
+        fedora = "../images/fedora/Fedora-Cloud-Base-Generic-42-1.1.x86_64.qcow2"
+        rocky9 = "../images/rocky9/Rocky-9-GenericCloud-Base-9.6-20250531.0.x86_64.qcow2"
     }
+
+    VMs = [
+        {os="ubuntu", type="k8scpnode", idx=1},
+        {os="ubuntu", type="k8swrknode", idx=1}, 
+        {os="fedora", type="k8swrknode", idx=2},
+        {os="rocky9", type="k8swrknode", idx=3},
+    ]
+    
+    vm_spec = {
+        k8scpnode = {
+            prefix = "k8scp",
+            vol_size = 80 * 1024 * 1024 * 1024,
+            vcpu = 8,
+            vmem = 8096,
+        },
+        k8swrknode = {
+            prefix = "k8swr",
+            vol_size = 80 * 1024 * 1024 * 1024,
+            vcpu = 8,
+            vmem = 8096,
+        }
+    }
+
+    # TimeZone of the VM: /usr/share/zoneinfo/
+    #timezone    = "Europe/Athens"
+    timezone    = "US/Eastern"
+
+    # The sshd port of the VM"
+    ssh_port    = 22
+   
 }
