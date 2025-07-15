@@ -92,3 +92,10 @@ sudo kubeadm token create --print-join-command
 echo ""
 echo ""
 
+sudo tee /usr/local/bin/setup_kubectl.sh<<EOF
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+alias k=kubectl
+EOF
+chmod +x /usr/local/bin/setup_kubectl.sh 
