@@ -84,3 +84,4 @@ runcmd:
   - apt -y autoclean
   - apt -y clean all
   - date -R > /root/Finished.txt
+  - ${k8s_kubeadm_script_path}
