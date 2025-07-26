@@ -48,6 +48,7 @@ write_files:
   - path: ${etc_hosts_extra_script_path}
     permissions: '0777'
 
+
 # Set TimeZone
 timezone: ${timezone}
 
@@ -59,26 +60,32 @@ growpart:
   ignore_growroot_disabled: false
 
 mounts:
-  - ["shared", "/shared", "virtiofs", "defaults", "0", "0"]
+  - [ shared, /shared, "9p", "trans=virtio,version=9p2000.L,rw", "0", "0" ]
 
+
+# Install packages
 packages:
   - bash-completion
   - figlet
+  - mlocate
   - ncdu
-  - virtiofsd
+  - python3-apt
 
 # Update/Upgrade & Reboot if necessary
 package_update: true
-# package_upgrade: true
-# package_reboot_if_required: true
+package_upgrade: true
+package_reboot_if_required: true
 
-bootcmd:
-  - dnf config-manager --set-enabled crb
-  - dnf install -y epel-release
-  - crb enable
-  - dnf install -y figlet ncdu
-
+# PostInstall
 runcmd:
   - figlet ${hostname} > /etc/motd
-  - hostnamectl set-hostname ${hostname}
+  - updatedb
+  # Firewall
+  - ufw allow "${sshdport}"/tcp && ufw enable
+  # Remove cloud-init
+  - apt-get -y autoremove --purge cloud-init lxc lxd snapd
+  - apt-get -y --purge autoremove
+  - apt -y autoclean
+  - apt -y clean all
   - date -R > /root/Finished.txt
+  - ${k8s_kubeadm_script_path}

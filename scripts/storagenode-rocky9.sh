@@ -58,46 +58,47 @@ sudo systemctl enable containerd
 #sudo systemctl status containerd
 
 
-sudo yum install -y kubelet kubeadm kubectl
+# sudo yum install -y kubelet kubeadm kubectl
 
-sudo systemctl enable kubelet
+# sudo systemctl enable kubelet
 
-sudo kubeadm config images pull
+# sudo kubeadm config images pull
 
 sudo mkdir -p /run/systemd/resolve
 sudo touch /run/systemd/resolve/resolv.conf
 
 
-sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 
-mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-# Verify
-kubectl cluster-info
-echo "Run: kubectl cluster-info dump"
+# sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 
-kubectl get nodes   -o wide
-kubectl get pods -A -o wide
+# mkdir -p $HOME/.kube
+# sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+# sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-# CNI Install: flannel
-#kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
-kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+# # Verify
+# kubectl cluster-info
+# echo "Run: kubectl cluster-info dump"
 
-# Get k8s cluster join command for worker nodes.
-echo ""
-echo "Run this command to the workers node to join the cluster:"
-sudo kubeadm token create --print-join-command > /shared/kubeadm_join.sh
-sudo chmod +x /shared/kubeadm_join.sh
-echo ""
-echo ""
+# kubectl get nodes   -o wide
+# kubectl get pods -A -o wide
 
-sudo tee /usr/local/bin/setup_kubectl.sh<<EOF
+# # CNI Install: flannel
+# #kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
+# kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
 
-mkdir -p /root/.kube
-sudo cp -i /etc/kubernetes/admin.conf /root/.kube/config
-sudo chown $(id -u):$(id -g) /root/.kube/config
-alias k=kubectl
-EOF
-chmod +x /usr/local/bin/setup_kubectl.sh
+# # Get k8s cluster join command for worker nodes.
+# echo ""
+# echo "Run this command to the workers node to join the cluster:"
+# sudo kubeadm token create --print-join-command
+# echo ""
+# echo ""
+
+# sudo tee /usr/local/bin/setup_kubectl.sh<<EOF
+
+# mkdir -p /root/.kube
+# sudo cp -i /etc/kubernetes/admin.conf /root/.kube/config
+# sudo chown $(id -u):$(id -g) /root/.kube/config
+# alias k=kubectl
+# EOF
+# chmod +x /usr/local/bin/setup_kubectl.sh

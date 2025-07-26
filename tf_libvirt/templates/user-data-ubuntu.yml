@@ -59,6 +59,9 @@ growpart:
   devices: ["/"]
   ignore_growroot_disabled: false
 
+mounts:
+  - [ shared, /shared, "9p", "trans=virtio,version=9p2000.L,rw", "0", "0" ]
+
 # Install packages
 packages:
   - bash-completion

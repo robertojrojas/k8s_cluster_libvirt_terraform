@@ -2,7 +2,7 @@
 
 ####################################
 ####################################
-###### KUBEADM CONTROL PLANE #######
+######    KUBEADM WORKER     #######
 ######        UBUNTU         #######
 ####################################
 ####################################
@@ -18,7 +18,6 @@
 
 # # Get status
 # sudo ufw status
-
 sudo systemctl stop ufw
 
 # Disable Swap
@@ -81,53 +80,9 @@ sudo chmod 0644 /etc/apt/sources.list.d/kubernetes.list
 sleep 1
 
 sudo apt-get update
-sudo apt-get install -y kubelet kubeadm kubectl
+# sudo apt-get install -y kubelet kubeadm kubectl
 
-# Get images
-sudo kubeadm config images pull
+# # Get images
+# sudo kubeadm config images pull
 
-# Init kubernetes
-sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 
-# Setup kubeconfig
-KUBEDIR="$HOME/.kube"
-rm -rf   "${KUBEDIR}"
-mkdir -p "${KUBEDIR}"
-
-sudo cp -i /etc/kubernetes/admin.conf "${KUBEDIR}/config"
-
-sudo chown "$(id -u)":"$(id -g)" "${KUBEDIR}/config"
-
-ls -la "${KUBEDIR}/config"
-
-echo 'alias k="kubectl"' | sudo tee -a /etc/bash.bashrc
-source /etc/bash.bashrc
-
-# Verify
-kubectl cluster-info
-echo "Run: kubectl cluster-info dump"
-
-kubectl get nodes   -o wide
-kubectl get pods -A -o wide
-
-# CNI Install: flannel
-# kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
-kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
-
-# Get k8s cluster join command for worker nodes.
-echo ""
-echo "Run this command to the workers node to join the cluster:"
-sudo kubeadm token create --print-join-command > /shared/kubeadm_join.sh
-sudo chmod +x /shared/kubeadm_join.sh
-echo ""
-echo ""
-
-sudo tee /usr/local/bin/setup_kubectl.sh<<EOF
-
-mkdir -p /root/.kube
-sudo cp -i /etc/kubernetes/admin.conf /root/.kube/config
-sudo chown $(id -u):$(id -g) /root/.kube/config
-alias k=kubectl
-cp /root/.kube/config /tmp/kubeconfig
-EOF
-chmod +x /usr/local/bin/setup_kubectl.sh 

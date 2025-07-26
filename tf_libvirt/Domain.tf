@@ -17,6 +17,14 @@ resource "libvirt_domain" "domain-os" {
     wait_for_lease = true
   }
 
+  filesystem {
+    source     = var.fs_share
+    target     = "shared"
+    readonly   = false
+    accessmode = "passthrough"
+  }
+
+
   console {
     target_type = "serial"
     type        = "pty"
@@ -31,6 +39,34 @@ resource "libvirt_domain" "domain-os" {
   disk {
     volume_id = libvirt_volume.os-base[each.key].id
   }
+
+  dynamic "xml" {
+    for_each = try(each.value.virtiofs, null) != null ? [{}] : []
+    content {
+      xslt = file("xslt/sharedfs-virtiofs.xsl")
+    }
+  }
+
+  # dynamic "disk" {
+  #   for_each = libvirt_volume.storage
+
+  #   iterator = storage
+  #   content {
+  #     volume_id = storage.value.id
+  #   } 
+  # }
+
+  # disk {
+  #     volume_id = libvirt_volume.storage_vdb["4-ubuntu-focal"].id
+  # }
+
+  # disk {
+  #     volume_id = libvirt_volume.storage_vdc["4-ubuntu-focal"].id
+  # }
+
+  # disk {
+  #     volume_id = libvirt_volume.storage_vdd["4-ubuntu-focal"].id
+  # }
 
   depends_on = [libvirt_cloudinit_disk.cloud-init]
 }

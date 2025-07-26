@@ -76,14 +76,16 @@ kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
 # Get k8s cluster join command for worker nodes.
 echo ""
 echo "Run this command to the workers node to join the cluster:"
-sudo kubeadm token create --print-join-command
+sudo kubeadm token create --print-join-command > /shared/kubeadm_join.sh
+sudo chmod +x /shared/kubeadm_join.sh
 echo ""
 echo ""
 
 sudo tee /usr/local/bin/setup_kubectl.sh<<EOF
-mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+mkdir -p /root/.kube
+sudo cp -i /etc/kubernetes/admin.conf /root/.kube/config
+sudo chown $(id -u):$(id -g) /root/.kube/config
 alias k=kubectl
 EOF
-chmod +x /usr/local/bin/setup_kubectl.sh 
+chmod +x /usr/local/bin/setup_kubectl.sh

@@ -1,3 +1,8 @@
+variable "fs_share" {
+  type = string
+  default = "/data/k8s_cluster/fs_shared"
+}
+
 locals {
 
     ssh_prv_key = "${pathexpand("~/.ssh/id_rsa")}"
@@ -11,13 +16,15 @@ locals {
         ubuntu = "../images/oracular-server-cloudimg-amd64.img",
         fedora = "../images/Fedora-Cloud-Base-Generic-42-1.1.x86_64.qcow2"
         rocky9 = "../images/Rocky-9-GenericCloud-Base-9.6-20250531.0.x86_64.qcow2"
+        ubuntu-focal = "../images/focal-server-cloudimg-amd64.img"
     }
 
     VMs = [
         {os="ubuntu", type="k8scpnode", idx=1},
         {os="ubuntu", type="k8swrknode", idx=1}, 
         {os="fedora", type="k8swrknode", idx=2},
-        {os="rocky9", type="k8swrknode", idx=3},
+        {os="rocky9", type="k8swrknode", virtiofs="1", idx=3},
+        {os="ubuntu-focal", type="storagenode", idx=4},
     ]
     
     vm_spec = {
@@ -29,6 +36,12 @@ locals {
         },
         k8swrknode = {
             prefix = "k8swr",
+            vol_size = 80 * 1024 * 1024 * 1024,
+            vcpu = 8,
+            vmem = 8096,
+        },
+        storagenode = {
+            prefix = "storage",
             vol_size = 80 * 1024 * 1024 * 1024,
             vcpu = 8,
             vmem = 8096,
