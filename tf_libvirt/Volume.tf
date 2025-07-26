@@ -20,35 +20,35 @@ resource "libvirt_volume" "os-base" {
 resource "libvirt_volume" "storage_vdb" {
   for_each   = {
     for idx, vm in local.VMs: "${idx}-${vm.os}" => vm
-     if vm.type == "storagenode"
+     if vm.type == local.storagenode
   } 
  
-  name  = "${random_id.id[each.key].id}_${each.key}_vdb_storage"
+  name  = "${each.value.hostname}_vdb_storage"
   pool   = "default"
   format = "qcow2"
-  size   = 10000000000
+  size   = var.fs_share_disk_size
 }
 
 resource "libvirt_volume" "storage_vdc" {
   for_each   = {
     for idx, vm in local.VMs: "${idx}-${vm.os}" => vm
-     if vm.type == "storagenode"
+     if vm.type == local.storagenode
   } 
  
-  name  = "${random_id.id[each.key].id}_${each.key}_vdc_storage"
+  name  = "${each.value.hostname}_vdc_storage"
   pool   = "default"
   format = "qcow2"
-  size   = 10000000000
+  size   = var.fs_share_disk_size
 }
 
 resource "libvirt_volume" "storage_vdd" {
   for_each   = {
     for idx, vm in local.VMs: "${idx}-${vm.os}" => vm
-     if vm.type == "storagenode"
+     if vm.type == local.storagenode
   } 
  
-  name  = "${random_id.id[each.key].id}_${each.key}_vdd_storage"
+  name  = "${each.value.hostname}_vdd_storage"
   pool   = "default"
   format = "qcow2"
-  size   = 10000000000
+  size   = var.fs_share_disk_size
 }

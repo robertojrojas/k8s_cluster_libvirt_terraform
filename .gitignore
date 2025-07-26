@@ -1,2 +1,7 @@
 .terraform**
 terraform.**
+*.qcow2
+*.img
+*.pub
+*.pem
+

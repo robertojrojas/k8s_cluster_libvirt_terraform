@@ -14,6 +14,9 @@ resource "libvirt_domain" "domain-os" {
 
   network_interface {
     network_name   = "default"
+    hostname       = each.value.hostname
+    addresses      = [each.value.ip]
+    mac            = each.value.mac
     wait_for_lease = true
   }
 
@@ -23,7 +26,6 @@ resource "libvirt_domain" "domain-os" {
     readonly   = false
     accessmode = "passthrough"
   }
-
 
   console {
     target_type = "serial"
@@ -46,27 +48,6 @@ resource "libvirt_domain" "domain-os" {
       xslt = file("xslt/sharedfs-virtiofs.xsl")
     }
   }
-
-  # dynamic "disk" {
-  #   for_each = libvirt_volume.storage
-
-  #   iterator = storage
-  #   content {
-  #     volume_id = storage.value.id
-  #   } 
-  # }
-
-  # disk {
-  #     volume_id = libvirt_volume.storage_vdb["4-ubuntu-focal"].id
-  # }
-
-  # disk {
-  #     volume_id = libvirt_volume.storage_vdc["4-ubuntu-focal"].id
-  # }
-
-  # disk {
-  #     volume_id = libvirt_volume.storage_vdd["4-ubuntu-focal"].id
-  # }
 
   depends_on = [libvirt_cloudinit_disk.cloud-init]
 }
