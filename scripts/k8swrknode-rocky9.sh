@@ -66,7 +66,7 @@ sudo kubeadm config images pull
 sudo mkdir -p /run/systemd/resolve
 sudo touch /run/systemd/resolve/resolv.conf
 
-
+sudo cp /shared/local_bin/* /usr/local/bin
 
 # Join the cluster
 # kubeadm join 192.168.122.168:6443 --token <<TOKEN>> --discovery-token-ca-cert-hash <<CA_CERT>>

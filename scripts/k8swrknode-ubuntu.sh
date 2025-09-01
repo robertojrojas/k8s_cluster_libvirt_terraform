@@ -84,3 +84,5 @@ sudo apt-get install -y kubelet kubeadm kubectl
 
 # Get images
 sudo kubeadm config images pull
+
+sudo cp /shared/local_bin/* /usr/local/bin

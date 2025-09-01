@@ -47,3 +47,5 @@ sudo dnf install -y kubernetes1.32 kubernetes1.32-kubeadm kubernetes1.32-client
 sudo systemctl enable kubelet
 
 sudo kubeadm config images pull
+
+sudo cp /shared/local_bin/* /usr/local/bin

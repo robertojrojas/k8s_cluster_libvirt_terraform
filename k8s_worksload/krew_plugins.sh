@@ -11,6 +11,8 @@ echo "alias k=kubectl" >> /root/.bashrc
   ./krew-linux_amd64 install krew
   echo 'export PATH=/root/.krew/bin:$PATH' >> /root/.bashrc
 )
+
+source /root/.bashrc
 kubectl krew index add netshoot https://github.com/nilic/kubectl-netshoot.git
 kubectl krew install netshoot/netshoot
 kubectl krew install ctx ns
