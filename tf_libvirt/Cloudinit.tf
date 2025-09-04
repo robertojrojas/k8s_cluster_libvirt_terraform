@@ -10,7 +10,7 @@ data "template_file" "user_data" {
 
   template = file(format("templates/user-data-%s.yml", each.value.os))
   vars = {
-    hostname           = format("%s-%s-%d", local.vm_spec[each.value.type].prefix, each.value.os, each.value.idx)
+    hostname           = each.value.hostname
     sshdport           = local.ssh_port
     timezone           = local.timezone
     ssh_pub_key        = data.local_file.ssh_pub_key_data.content

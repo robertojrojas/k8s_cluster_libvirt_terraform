@@ -1,7 +1,8 @@
 resource "libvirt_domain" "domain-os" {
   for_each   = {for idx, vm in local.VMs: "${idx}-${vm.os}" => vm}
 
-  name = format("%s-%s-%d", local.vm_spec[each.value.type].prefix, each.value.os, each.value.idx)  
+  # name = format("%s-%s-%d", local.vm_spec[each.value.type].prefix, each.value.os, each.value.idx)  
+  name = each.value.hostname
 
   memory = local.vm_spec[each.value.type].vmem
   vcpu   = local.vm_spec[each.value.type].vcpu
@@ -13,7 +14,7 @@ resource "libvirt_domain" "domain-os" {
   }
 
   network_interface {
-    network_name   = "default"
+    network_name   = local.network_name
     hostname       = each.value.hostname
     addresses      = [each.value.ip]
     mac            = each.value.mac
