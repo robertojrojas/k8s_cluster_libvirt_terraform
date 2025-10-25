@@ -45,6 +45,13 @@ sudo apt-add-repository -y "deb https://download.docker.com/linux/ubuntu $(lsb_r
 
 sleep 1
 
+ETCD_RESOURCES_DIR=/shared/etcd
+mkdir -p /etc/systemd/system/kubelet.service.d
+
+cp ${ETCD_RESOURCES_DIR}/kubelet.conf /etc/systemd/system/kubelet.service.d/kubelet.conf
+cp ${ETCD_RESOURCES_DIR}/20-etcd-service-manager.conf /etc/systemd/system/kubelet.service.d/20-etcd-service-manager.conf
+
+
 sudo apt-get -y install containerd.io
 
 containerd config default                              \
@@ -76,13 +83,6 @@ sudo apt-get install -y kubelet kubeadm
 
 # Get images
 sudo kubeadm config images pull
-
-
-ETCD_RESOURCES_DIR=/shared/etcd
-mkdir -p /etc/systemd/system/kubelet.service.d
-
-cp ${ETCD_RESOURCES_DIR}/kubelet.conf /etc/systemd/system/kubelet.service.d/kubelet.conf
-cp ${ETCD_RESOURCES_DIR}/20-etcd-service-manager.conf /etc/systemd/system/kubelet.service.d/20-etcd-service-manager.conf
 
 systemctl daemon-reload
 systemctl restart kubelet
