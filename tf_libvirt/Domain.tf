@@ -1,3 +1,34 @@
+locals {
+  rocky_host = strcontains(var.runtime_linux_os, "rocky")
+  rocky_guest_os = "rocky9"
+  default_machine = "pc"
+  host_qemu = {
+    "rocky-rocky9": {
+       "machine": "pc-q35-rhel9.6.0",
+       xlst_fname: "xslt/rocky-host-rocky9-guest.xsl",
+    },
+    "ubuntu-rocky9": {
+       "machine": "q35",
+       xlst_fname: "xslt/ubuntu-host-rocky9-guest.xsl",
+    },
+     "linuxmint-rocky9": {
+       "machine": "q35",
+       xlst_fname: "xslt/ubuntu-host-rocky9-guest.xsl",
+    },
+     "linuxmint-ubuntu-noble": {
+       "machine": "pc-q35-noble",
+       xlst_fname: "xslt/ubuntu-host-rocky9-guest.xsl",
+    },
+    "linuxmint-ubuntu-jammy": {
+       "machine": "pc-q35-jammy",
+       xlst_fname: "xslt/ubuntu-host-rocky9-guest.xsl",
+    },
+    "linuxmint-fedora": {
+       "machine": local.default_machine,
+       xlst_fname: "xslt/ubuntu-host-rocky9-guest.xsl",
+    },
+  }
+}
 resource "libvirt_domain" "domain-os" {
   for_each = { for idx, vm in local.VMs : "${idx}-${vm.os}" => vm }
 
@@ -8,7 +39,13 @@ resource "libvirt_domain" "domain-os" {
 
   // Needed for Rocky 9.6
   //machine = "pc-q35-rhel9.6.0"
-  machine = each.value.os == "rocky9" ? "pc-q35-rhel9.6.0" : "pc"
+  machine = each.value.os == local.rocky_guest_os ? local.host_qemu["${var.runtime_linux_os}-${each.value.os}"].machine : local.default_machine
+  dynamic "xml" {
+    for_each = each.value.os == local.rocky_guest_os ? [{}] : []
+    content {
+      xslt = file(local.host_qemu["${var.runtime_linux_os}-${each.value.os}"].xlst_fname)
+    }
+  }
 
   # filesystem {
   #   source     = var.fs_share
@@ -44,13 +81,6 @@ resource "libvirt_domain" "domain-os" {
 
   disk {
     volume_id = libvirt_volume.os-base[each.key].id
-  }
-
-  dynamic "xml" {
-    for_each = try(each.value.virtiofs, null) != null ? [{}] : []
-    content {
-      xslt = file("xslt/sharedfs-virtiofs.xsl")
-    }
   }
 
   depends_on = [libvirt_cloudinit_disk.cloud-init]

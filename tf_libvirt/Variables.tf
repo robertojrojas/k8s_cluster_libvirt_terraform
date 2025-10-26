@@ -1,6 +1,6 @@
 variable "fs_share" {
   type    = string
-  default = "/mnt/myraid/k8s_cluster/fs_shared"
+  default = "/data/k8s_cluster/fs_shared"
 }
 
 variable "fs_share_disk_size" {
@@ -18,6 +18,10 @@ variable "network_name" {
   default = "default"
 }
 
+variable "runtime_linux_os" {
+  type = string
+}
+
 locals {
 
   ssh_prv_key = pathexpand("~/.ssh/id_rsa")
@@ -29,9 +33,10 @@ locals {
   # Run k8s_cluster_libvirt_terraform/images/download_cloud_images.sh
   cloud_images_dir = "../images"
   cloud_images = {
-    ubuntu       = "${local.cloud_images_dir}/oracular-server-cloudimg-amd64.img",
+    ubuntu       = "${local.cloud_images_dir}/jammy-server-cloudimg-amd64.img",
+    #ubuntu       = "${local.cloud_images_dir}/noble-server-cloudimg-amd64.img",
     fedora       = "${local.cloud_images_dir}/Fedora-Cloud-Base-Generic-42-1.1.x86_64.qcow2"
-    rocky9       = "${local.cloud_images_dir}/Rocky-9-GenericCloud.latest.x86_64.qcow2"
+    rocky9       = "${local.cloud_images_dir}/Rocky-9-GenericCloud-Base.latest.x86_64.qcow2"
     ubuntu-focal = "${local.cloud_images_dir}/focal-server-cloudimg-amd64.img"
   }
 
@@ -49,10 +54,10 @@ locals {
     { os = "ubuntu", type = local.k8scpnode, idx = 2, hostname = "k8scp-ubuntu-2", ip = "192.168.100.211", mac = "52:53:00:b1:5b:fb" },
     { os = "ubuntu", type = local.k8scpnode, idx = 3, hostname = "k8scp-ubuntu-3", ip = "192.168.100.212", mac = "52:53:00:b1:1b:fa" },
 
-    { os = "ubuntu", type = local.k8swrknode, idx = 1, hostname = "k8swr-ubuntu-1", ip = "192.168.100.39", mac = "52:53:00:2a:06:31" },
-    { os = "fedora", type = local.k8swrknode, idx = 2, hostname = "k8swr-fedora-2", ip = "192.168.100.126", mac = "52:53:00:41:ce:8b" },
-    { os = "rocky9", type = local.k8swrknode, virtiofs = "1", idx = 3, hostname = "k8swr-rocky9-3", ip = "192.168.100.49", mac = "52:53:00:ba:f1:ca" },
-    { os = "ubuntu-focal", type = local.storagenode, idx = 4, hostname = "storage-ubuntu-focal-4", ip = "192.168.100.159", mac = "52:53:00:d6:f6:25" },
+    { os = "ubuntu", type = local.k8swrknode, idx = 1, hostname = "k8swr-ubuntu-1", ip = "192.168.100.239", mac = "52:53:00:2a:06:31" },
+    { os = "fedora", type = local.k8swrknode, idx = 2, hostname = "k8swr-fedora-2", ip = "192.168.100.226", mac = "52:53:00:41:ce:8b" },
+    { os = "rocky9", type = local.k8swrknode, idx = 3, hostname = "k8swr-rocky9-3", ip = "192.168.100.249", mac = "52:53:00:ba:f1:ca" },
+    { os = "ubuntu-focal", type = local.storagenode, idx = 4, hostname = "storage-ubuntu-focal-4", ip = "192.168.100.229", mac = "52:53:00:d6:f6:25" },
   ]
 
   vm_spec = {
