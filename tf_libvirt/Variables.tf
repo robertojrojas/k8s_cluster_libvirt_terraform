@@ -52,7 +52,7 @@ locals {
         {os="ubuntu", type=local.k8swrknode, idx=1, hostname="k8swr-ubuntu-1", ip="192.168.100.39", mac="52:53:00:2a:06:31"}, 
         {os="fedora", type=local.k8swrknode, idx=2, hostname="k8swr-fedora-2", ip="192.168.100.126", mac="52:53:00:41:ce:8b"},
         {os="rocky9", type=local.k8swrknode, virtiofs="1", idx=3, hostname="k8swr-rocky9-3", ip="192.168.100.49", mac="52:53:00:ba:f1:ca"},
-        #{os="ubuntu-focal", type=local.storagenode, idx=4, hostname="storage-ubuntu-focal-4", ip="192.168.100.159", mac="52:53:00:d6:f6:25"},
+        {os="ubuntu-focal", type=local.storagenode, idx=4, hostname="storage-ubuntu-focal-4", ip="192.168.100.159", mac="52:53:00:d6:f6:25"},
     ]
     
     vm_spec = {

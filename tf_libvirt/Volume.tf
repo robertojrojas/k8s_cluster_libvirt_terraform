@@ -17,38 +17,38 @@ resource "libvirt_volume" "os-base" {
   format         = "qcow2"
 }
 
-# resource "libvirt_volume" "storage_vdb" {
-#   for_each   = {
-#     for idx, vm in local.VMs: "${idx}-${vm.os}" => vm
-#      if vm.type == local.storagenode
-#   } 
+resource "libvirt_volume" "storage_vdb" {
+  for_each   = {
+    for idx, vm in local.VMs: "${idx}-${vm.os}" => vm
+     if vm.type == local.storagenode
+  } 
  
-#   name  = "${each.value.hostname}_vdb_storage"
-#   pool   = "default"
-#   format = "qcow2"
-#   size   = var.fs_share_disk_size
-# }
+  name  = "${each.value.hostname}_vdb_storage"
+  pool   = "default"
+  format = "qcow2"
+  size   = var.fs_share_disk_size
+}
 
-# resource "libvirt_volume" "storage_vdc" {
-#   for_each   = {
-#     for idx, vm in local.VMs: "${idx}-${vm.os}" => vm
-#      if vm.type == local.storagenode
-#   } 
+resource "libvirt_volume" "storage_vdc" {
+  for_each   = {
+    for idx, vm in local.VMs: "${idx}-${vm.os}" => vm
+     if vm.type == local.storagenode
+  } 
  
-#   name  = "${each.value.hostname}_vdc_storage"
-#   pool   = "default"
-#   format = "qcow2"
-#   size   = var.fs_share_disk_size
-# }
+  name  = "${each.value.hostname}_vdc_storage"
+  pool   = "default"
+  format = "qcow2"
+  size   = var.fs_share_disk_size
+}
 
-# resource "libvirt_volume" "storage_vdd" {
-#   for_each   = {
-#     for idx, vm in local.VMs: "${idx}-${vm.os}" => vm
-#      if vm.type == local.storagenode
-#   } 
+resource "libvirt_volume" "storage_vdd" {
+  for_each   = {
+    for idx, vm in local.VMs: "${idx}-${vm.os}" => vm
+     if vm.type == local.storagenode
+  } 
  
-#   name  = "${each.value.hostname}_vdd_storage"
-#   pool   = "default"
-#   format = "qcow2"
-#   size   = var.fs_share_disk_size
-# }
+  name  = "${each.value.hostname}_vdd_storage"
+  pool   = "default"
+  format = "qcow2"
+  size   = var.fs_share_disk_size
+}
