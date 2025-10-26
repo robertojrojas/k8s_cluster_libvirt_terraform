@@ -1,0 +1,276 @@
+2025-10-26T11:43:18.480-0400 [INFO]  Terraform version: 1.13.4
+2025-10-26T11:43:18.480-0400 [DEBUG] using github.com/hashicorp/go-tfe v1.74.1
+2025-10-26T11:43:18.480-0400 [DEBUG] using github.com/hashicorp/hcl/v2 v2.24.0
+2025-10-26T11:43:18.480-0400 [DEBUG] using github.com/hashicorp/terraform-svchost v0.1.1
+2025-10-26T11:43:18.480-0400 [DEBUG] using github.com/zclconf/go-cty v1.16.3
+2025-10-26T11:43:18.480-0400 [INFO]  Go runtime version: go1.24.5
+2025-10-26T11:43:18.480-0400 [INFO]  CLI args: []string{"terraform", "apply", "-no-color", "terraform.out"}
+2025-10-26T11:43:18.480-0400 [DEBUG] Attempting to open CLI config file: /home/rrojas/.terraformrc
+2025-10-26T11:43:18.481-0400 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2025-10-26T11:43:18.481-0400 [DEBUG] ignoring non-existing provider search directory terraform.d/plugins
+2025-10-26T11:43:18.481-0400 [DEBUG] ignoring non-existing provider search directory /home/rrojas/.terraform.d/plugins
+2025-10-26T11:43:18.481-0400 [DEBUG] ignoring non-existing provider search directory /home/rrojas/.local/share/terraform/plugins
+2025-10-26T11:43:18.481-0400 [DEBUG] ignoring non-existing provider search directory /home/rrojas/.local/share/flatpak/exports/share/terraform/plugins
+2025-10-26T11:43:18.481-0400 [DEBUG] ignoring non-existing provider search directory /var/lib/flatpak/exports/share/terraform/plugins
+2025-10-26T11:43:18.481-0400 [DEBUG] ignoring non-existing provider search directory /usr/local/share/terraform/plugins
+2025-10-26T11:43:18.481-0400 [DEBUG] ignoring non-existing provider search directory /usr/share/terraform/plugins
+2025-10-26T11:43:18.481-0400 [INFO]  CLI command args: []string{"apply", "-no-color", "terraform.out"}
+2025-10-26T11:43:18.918-0400 [DEBUG] checking for provisioner in "."
+2025-10-26T11:43:18.926-0400 [DEBUG] checking for provisioner in "/usr/bin"
+2025-10-26T11:43:18.929-0400 [INFO]  backend/local: starting Apply operation
+2025-10-26T11:43:18.957-0400 [DEBUG] created provider logger: level=debug
+2025-10-26T11:43:18.957-0400 [INFO]  provider: configuring client automatic mTLS
+2025-10-26T11:43:18.972-0400 [DEBUG] provider: starting plugin: path=.terraform/providers/registry.terraform.io/dmacvicar/libvirt/0.8.3/linux_amd64/terraform-provider-libvirt_v0.8.3 args=[".terraform/providers/registry.terraform.io/dmacvicar/libvirt/0.8.3/linux_amd64/terraform-provider-libvirt_v0.8.3"]
+2025-10-26T11:43:18.972-0400 [DEBUG] provider: plugin started: path=.terraform/providers/registry.terraform.io/dmacvicar/libvirt/0.8.3/linux_amd64/terraform-provider-libvirt_v0.8.3 pid=171840
+2025-10-26T11:43:18.972-0400 [DEBUG] provider: waiting for RPC address: plugin=.terraform/providers/registry.terraform.io/dmacvicar/libvirt/0.8.3/linux_amd64/terraform-provider-libvirt_v0.8.3
+2025-10-26T11:43:18.978-0400 [INFO]  provider.terraform-provider-libvirt_v0.8.3: configuring server automatic mTLS: timestamp=2025-10-26T11:43:18.978-0400
+2025-10-26T11:43:18.994-0400 [DEBUG] provider: using plugin: version=5
+2025-10-26T11:43:18.994-0400 [DEBUG] provider.terraform-provider-libvirt_v0.8.3: plugin address: network=unix address=/tmp/plugin201197518 timestamp=2025-10-26T11:43:18.993-0400
+2025-10-26T11:43:19.015-0400 [DEBUG] provider.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = error reading from server: EOF"
+2025-10-26T11:43:19.016-0400 [INFO]  provider: plugin process exited: plugin=.terraform/providers/registry.terraform.io/dmacvicar/libvirt/0.8.3/linux_amd64/terraform-provider-libvirt_v0.8.3 id=171840
+2025-10-26T11:43:19.016-0400 [DEBUG] provider: plugin exited
+2025-10-26T11:43:19.016-0400 [DEBUG] created provider logger: level=debug
+2025-10-26T11:43:19.016-0400 [INFO]  provider: configuring client automatic mTLS
+2025-10-26T11:43:19.022-0400 [DEBUG] provider: starting plugin: path=.terraform/providers/registry.terraform.io/hashicorp/local/2.5.3/linux_amd64/terraform-provider-local_v2.5.3_x5 args=[".terraform/providers/registry.terraform.io/hashicorp/local/2.5.3/linux_amd64/terraform-provider-local_v2.5.3_x5"]
+2025-10-26T11:43:19.022-0400 [DEBUG] provider: plugin started: path=.terraform/providers/registry.terraform.io/hashicorp/local/2.5.3/linux_amd64/terraform-provider-local_v2.5.3_x5 pid=171857
+2025-10-26T11:43:19.022-0400 [DEBUG] provider: waiting for RPC address: plugin=.terraform/providers/registry.terraform.io/hashicorp/local/2.5.3/linux_amd64/terraform-provider-local_v2.5.3_x5
+2025-10-26T11:43:19.027-0400 [INFO]  provider.terraform-provider-local_v2.5.3_x5: configuring server automatic mTLS: timestamp=2025-10-26T11:43:19.027-0400
+2025-10-26T11:43:19.042-0400 [DEBUG] provider: using plugin: version=5
+2025-10-26T11:43:19.042-0400 [DEBUG] provider.terraform-provider-local_v2.5.3_x5: plugin address: address=/tmp/plugin2306041920 network=unix timestamp=2025-10-26T11:43:19.042-0400
+2025-10-26T11:43:19.057-0400 [DEBUG] No provider meta schema returned
+2025-10-26T11:43:19.058-0400 [DEBUG] provider.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = error reading from server: EOF"
+2025-10-26T11:43:19.058-0400 [INFO]  provider: plugin process exited: plugin=.terraform/providers/registry.terraform.io/hashicorp/local/2.5.3/linux_amd64/terraform-provider-local_v2.5.3_x5 id=171857
+2025-10-26T11:43:19.058-0400 [DEBUG] provider: plugin exited
+2025-10-26T11:43:19.059-0400 [DEBUG] created provider logger: level=debug
+2025-10-26T11:43:19.059-0400 [INFO]  provider: configuring client automatic mTLS
+2025-10-26T11:43:19.064-0400 [DEBUG] provider: starting plugin: path=.terraform/providers/registry.terraform.io/hashicorp/random/3.7.2/linux_amd64/terraform-provider-random_v3.7.2_x5 args=[".terraform/providers/registry.terraform.io/hashicorp/random/3.7.2/linux_amd64/terraform-provider-random_v3.7.2_x5"]
+2025-10-26T11:43:19.065-0400 [DEBUG] provider: plugin started: path=.terraform/providers/registry.terraform.io/hashicorp/random/3.7.2/linux_amd64/terraform-provider-random_v3.7.2_x5 pid=171871
+2025-10-26T11:43:19.065-0400 [DEBUG] provider: waiting for RPC address: plugin=.terraform/providers/registry.terraform.io/hashicorp/random/3.7.2/linux_amd64/terraform-provider-random_v3.7.2_x5
+2025-10-26T11:43:19.069-0400 [INFO]  provider.terraform-provider-random_v3.7.2_x5: configuring server automatic mTLS: timestamp=2025-10-26T11:43:19.069-0400
+2025-10-26T11:43:19.084-0400 [DEBUG] provider: using plugin: version=5
+2025-10-26T11:43:19.084-0400 [DEBUG] provider.terraform-provider-random_v3.7.2_x5: plugin address: address=/tmp/plugin297957642 network=unix timestamp=2025-10-26T11:43:19.084-0400
+2025-10-26T11:43:19.099-0400 [DEBUG] No provider meta schema returned
+2025-10-26T11:43:19.099-0400 [DEBUG] provider.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = error reading from server: EOF"
+2025-10-26T11:43:19.100-0400 [INFO]  provider: plugin process exited: plugin=.terraform/providers/registry.terraform.io/hashicorp/random/3.7.2/linux_amd64/terraform-provider-random_v3.7.2_x5 id=171871
+2025-10-26T11:43:19.100-0400 [DEBUG] provider: plugin exited
+2025-10-26T11:43:19.100-0400 [DEBUG] created provider logger: level=debug
+2025-10-26T11:43:19.100-0400 [INFO]  provider: configuring client automatic mTLS
+2025-10-26T11:43:19.106-0400 [DEBUG] provider: starting plugin: path=.terraform/providers/registry.terraform.io/hashicorp/template/2.2.0/linux_amd64/terraform-provider-template_v2.2.0_x4 args=[".terraform/providers/registry.terraform.io/hashicorp/template/2.2.0/linux_amd64/terraform-provider-template_v2.2.0_x4"]
+2025-10-26T11:43:19.106-0400 [DEBUG] provider: plugin started: path=.terraform/providers/registry.terraform.io/hashicorp/template/2.2.0/linux_amd64/terraform-provider-template_v2.2.0_x4 pid=171885
+2025-10-26T11:43:19.106-0400 [DEBUG] provider: waiting for RPC address: plugin=.terraform/providers/registry.terraform.io/hashicorp/template/2.2.0/linux_amd64/terraform-provider-template_v2.2.0_x4
+2025-10-26T11:43:19.112-0400 [INFO]  provider.terraform-provider-template_v2.2.0_x4: configuring server automatic mTLS: timestamp=2025-10-26T11:43:19.111-0400
+2025-10-26T11:43:19.149-0400 [DEBUG] provider: using plugin: version=5
+2025-10-26T11:43:19.149-0400 [DEBUG] provider.terraform-provider-template_v2.2.0_x4: plugin address: address=/tmp/plugin400600252 network=unix timestamp=2025-10-26T11:43:19.148-0400
+2025-10-26T11:43:19.188-0400 [DEBUG] provider.stdio: received EOF, stopping recv loop: err="rpc error: code = Unimplemented desc = unknown service plugin.GRPCStdio"
+2025-10-26T11:43:19.188-0400 [DEBUG] No provider meta schema returned
+2025-10-26T11:43:19.189-0400 [INFO]  provider: plugin process exited: plugin=.terraform/providers/registry.terraform.io/hashicorp/template/2.2.0/linux_amd64/terraform-provider-template_v2.2.0_x4 id=171885
+2025-10-26T11:43:19.189-0400 [DEBUG] provider: plugin exited
+2025-10-26T11:43:19.189-0400 [DEBUG] created provider logger: level=debug
+2025-10-26T11:43:19.190-0400 [INFO]  provider: configuring client automatic mTLS
+2025-10-26T11:43:19.195-0400 [DEBUG] provider: starting plugin: path=.terraform/providers/registry.terraform.io/hashicorp/time/0.13.1/linux_amd64/terraform-provider-time_v0.13.1_x5 args=[".terraform/providers/registry.terraform.io/hashicorp/time/0.13.1/linux_amd64/terraform-provider-time_v0.13.1_x5"]
+2025-10-26T11:43:19.196-0400 [DEBUG] provider: plugin started: path=.terraform/providers/registry.terraform.io/hashicorp/time/0.13.1/linux_amd64/terraform-provider-time_v0.13.1_x5 pid=171907
+2025-10-26T11:43:19.196-0400 [DEBUG] provider: waiting for RPC address: plugin=.terraform/providers/registry.terraform.io/hashicorp/time/0.13.1/linux_amd64/terraform-provider-time_v0.13.1_x5
+2025-10-26T11:43:19.200-0400 [INFO]  provider.terraform-provider-time_v0.13.1_x5: configuring server automatic mTLS: timestamp=2025-10-26T11:43:19.200-0400
+2025-10-26T11:43:19.214-0400 [DEBUG] provider: using plugin: version=5
+2025-10-26T11:43:19.214-0400 [DEBUG] provider.terraform-provider-time_v0.13.1_x5: plugin address: address=/tmp/plugin3758950592 network=unix timestamp=2025-10-26T11:43:19.214-0400
+2025-10-26T11:43:19.230-0400 [DEBUG] No provider meta schema returned
+2025-10-26T11:43:19.231-0400 [DEBUG] provider.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = error reading from server: EOF"
+2025-10-26T11:43:19.232-0400 [INFO]  provider: plugin process exited: plugin=.terraform/providers/registry.terraform.io/hashicorp/time/0.13.1/linux_amd64/terraform-provider-time_v0.13.1_x5 id=171907
+2025-10-26T11:43:19.232-0400 [DEBUG] provider: plugin exited
+2025-10-26T11:43:19.232-0400 [DEBUG] created provider logger: level=debug
+2025-10-26T11:43:19.232-0400 [INFO]  provider: configuring client automatic mTLS
+2025-10-26T11:43:19.237-0400 [DEBUG] provider: starting plugin: path=.terraform/providers/registry.terraform.io/hashicorp/tls/4.1.0/linux_amd64/terraform-provider-tls_v4.1.0_x5 args=[".terraform/providers/registry.terraform.io/hashicorp/tls/4.1.0/linux_amd64/terraform-provider-tls_v4.1.0_x5"]
+2025-10-26T11:43:19.238-0400 [DEBUG] provider: plugin started: path=.terraform/providers/registry.terraform.io/hashicorp/tls/4.1.0/linux_amd64/terraform-provider-tls_v4.1.0_x5 pid=171922
+2025-10-26T11:43:19.238-0400 [DEBUG] provider: waiting for RPC address: plugin=.terraform/providers/registry.terraform.io/hashicorp/tls/4.1.0/linux_amd64/terraform-provider-tls_v4.1.0_x5
+2025-10-26T11:43:19.243-0400 [INFO]  provider.terraform-provider-tls_v4.1.0_x5: configuring server automatic mTLS: timestamp=2025-10-26T11:43:19.242-0400
+2025-10-26T11:43:19.258-0400 [DEBUG] provider: using plugin: version=5
+2025-10-26T11:43:19.258-0400 [DEBUG] provider.terraform-provider-tls_v4.1.0_x5: plugin address: address=/tmp/plugin3604714619 network=unix timestamp=2025-10-26T11:43:19.257-0400
+2025-10-26T11:43:19.273-0400 [DEBUG] No provider meta schema returned
+2025-10-26T11:43:19.274-0400 [DEBUG] provider.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = error reading from server: EOF"
+2025-10-26T11:43:19.274-0400 [INFO]  provider: plugin process exited: plugin=.terraform/providers/registry.terraform.io/hashicorp/tls/4.1.0/linux_amd64/terraform-provider-tls_v4.1.0_x5 id=171922
+2025-10-26T11:43:19.274-0400 [DEBUG] provider: plugin exited
+2025-10-26T11:43:19.275-0400 [INFO]  backend/local: apply calling Apply
+2025-10-26T11:43:19.275-0400 [DEBUG] Building and walking apply graph for NormalMode plan
+2025-10-26T11:43:19.275-0400 [DEBUG] adding implicit provider configuration provider["registry.terraform.io/hashicorp/tls"], implied first by tls_private_key.ssh_key (expand)
+2025-10-26T11:43:19.275-0400 [DEBUG] adding implicit provider configuration provider["registry.terraform.io/hashicorp/local"], implied first by data.local_file.ssh_pub_key_data (expand)
+2025-10-26T11:43:19.275-0400 [DEBUG] ProviderTransformer: "libvirt_volume.os-vol (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/dmacvicar/libvirt"]
+2025-10-26T11:43:19.275-0400 [DEBUG] ProviderTransformer: "random_id.id (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/random"]
+2025-10-26T11:43:19.276-0400 [DEBUG] ProviderTransformer: "data.template_file.user_data (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/template"]
+2025-10-26T11:43:19.276-0400 [DEBUG] ProviderTransformer: "libvirt_domain.domain-os (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/dmacvicar/libvirt"]
+2025-10-26T11:43:19.276-0400 [DEBUG] ProviderTransformer: "tls_private_key.ssh_key (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/tls"]
+2025-10-26T11:43:19.276-0400 [DEBUG] ProviderTransformer: "time_sleep.wait_for_cloud_init (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/time"]
+2025-10-26T11:43:19.276-0400 [DEBUG] ProviderTransformer: "local_file.public_key (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/local"]
+2025-10-26T11:43:19.276-0400 [DEBUG] ProviderTransformer: "local_file.private_key_pem (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/local"]
+2025-10-26T11:43:19.276-0400 [DEBUG] ProviderTransformer: "libvirt_domain.domain-os[\"2-rocky9\"]" (*terraform.NodeApplyableResourceInstance) needs provider["registry.terraform.io/dmacvicar/libvirt"]
+2025-10-26T11:43:19.276-0400 [DEBUG] ProviderTransformer: "libvirt_volume.os-base (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/dmacvicar/libvirt"]
+2025-10-26T11:43:19.276-0400 [DEBUG] ProviderTransformer: "libvirt_cloudinit_disk.cloud-init (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/dmacvicar/libvirt"]
+2025-10-26T11:43:19.276-0400 [DEBUG] ProviderTransformer: "data.local_file.ssh_pub_key_data (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/local"]
+2025-10-26T11:43:19.276-0400 [DEBUG] ProviderTransformer: "data.template_file.network_config (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/template"]
+2025-10-26T11:43:19.276-0400 [DEBUG] ReferenceTransformer: "local_file.public_key (expand)" references: [tls_private_key.ssh_key (expand)]
+2025-10-26T11:43:19.276-0400 [DEBUG] ReferenceTransformer: "var.fs_share" references: []
+2025-10-26T11:43:19.276-0400 [DEBUG] ReferenceTransformer: "output.public_key (expand)" references: [tls_private_key.ssh_key (expand)]
+2025-10-26T11:43:19.276-0400 [DEBUG] ReferenceTransformer: "provider[\"registry.terraform.io/hashicorp/random\"]" references: []
+2025-10-26T11:43:19.276-0400 [DEBUG] ReferenceTransformer: "provider[\"registry.terraform.io/hashicorp/tls\"]" references: []
+2025-10-26T11:43:19.276-0400 [DEBUG] ReferenceTransformer: "local_file.private_key_pem (expand)" references: [tls_private_key.ssh_key (expand)]
+2025-10-26T11:43:19.276-0400 [DEBUG] ReferenceTransformer: "random_id.id (expand)" references: [local.VMs (expand)]
+2025-10-26T11:43:19.276-0400 [DEBUG] ReferenceTransformer: "data.template_file.user_data (expand)" references: [local.VMs (expand) local.ssh_port (expand) local.timezone (expand) data.local_file.ssh_pub_key_data (expand) local.k8s_kubeadm_script_path (expand) local.etc_hosts_extra_script_path (expand)]
+2025-10-26T11:43:19.276-0400 [DEBUG] ReferenceTransformer: "var.fs_share_disk_size" references: []
+2025-10-26T11:43:19.276-0400 [DEBUG] ReferenceTransformer: "local.timezone (expand)" references: []
+2025-10-26T11:43:19.276-0400 [DEBUG] ReferenceTransformer: "provider[\"registry.terraform.io/hashicorp/time\"]" references: []
+2025-10-26T11:43:19.276-0400 [DEBUG] ReferenceTransformer: "provider[\"registry.terraform.io/dmacvicar/libvirt\"]" references: []
+2025-10-26T11:43:19.276-0400 [DEBUG] ReferenceTransformer: "provider[\"registry.terraform.io/hashicorp/local\"]" references: []
+2025-10-26T11:43:19.276-0400 [DEBUG] ReferenceTransformer: "var.ssh_port" references: []
+2025-10-26T11:43:19.276-0400 [DEBUG] ReferenceTransformer: "var.network_name" references: []
+2025-10-26T11:43:19.276-0400 [DEBUG] ReferenceTransformer: "local.ssh_port (expand)" references: [var.ssh_port]
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "libvirt_domain.domain-os[\"2-rocky9\"]" references: [libvirt_cloudinit_disk.cloud-init (expand) local.VMs (expand) local.vm_spec (expand) libvirt_cloudinit_disk.cloud-init (expand) local.vm_spec (expand) libvirt_volume.os-base (expand)]
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "local.etcdnode (expand)" references: []
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "local.etc_hosts_extra_script_path (expand)" references: []
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "output.etcHosts (expand)" references: [local.VMs (expand) libvirt_domain.domain-os["2-rocky9"] libvirt_domain.domain-os (expand) libvirt_domain.domain-os["2-rocky9"] libvirt_domain.domain-os (expand) libvirt_domain.domain-os["2-rocky9"] libvirt_domain.domain-os (expand)]
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "output.VMs (expand)" references: [local.VMs (expand) libvirt_domain.domain-os["2-rocky9"] libvirt_domain.domain-os (expand) libvirt_domain.domain-os["2-rocky9"] libvirt_domain.domain-os (expand) libvirt_domain.domain-os["2-rocky9"] libvirt_domain.domain-os (expand)]
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "libvirt_volume.os-base (expand)" references: [local.VMs (expand) random_id.id (expand) libvirt_volume.os-vol (expand) local.vm_spec (expand)]
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "local.k8swrknode (expand)" references: []
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "local.storagenode (expand)" references: []
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "local.ssh_prv_key (expand)" references: []
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "libvirt_cloudinit_disk.cloud-init (expand)" references: [data.template_file.user_data (expand) local.VMs (expand) data.template_file.user_data (expand) random_id.id (expand) data.template_file.network_config (expand)]
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "libvirt_domain.domain-os (expand)" references: [libvirt_cloudinit_disk.cloud-init (expand) local.VMs (expand) libvirt_cloudinit_disk.cloud-init (expand) local.vm_spec (expand) local.vm_spec (expand) libvirt_volume.os-base (expand)]
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "tls_private_key.ssh_key (expand)" references: []
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "local.k8scpnode (expand)" references: []
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "local.k8s_kubeadm_script_path (expand)" references: []
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "local.VMs (expand)" references: [local.k8scpnode (expand) local.k8swrknode (expand) local.k8swrknode (expand)]
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "local.vm_spec (expand)" references: []
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "output.private_key (expand)" references: [tls_private_key.ssh_key (expand)]
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "data.local_file.ssh_pub_key_data (expand)" references: [local.ssh_pub_key (expand)]
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "data.template_file.network_config (expand)" references: []
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "local.cloud_images (expand)" references: [local.cloud_images_dir (expand) local.cloud_images_dir (expand) local.cloud_images_dir (expand) local.cloud_images_dir (expand)]
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "local.ssh_pub_key (expand)" references: []
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "local.cloud_images_dir (expand)" references: []
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "provider[\"registry.terraform.io/hashicorp/template\"]" references: []
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "time_sleep.wait_for_cloud_init (expand)" references: [libvirt_cloudinit_disk.cloud-init (expand)]
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "libvirt_volume.os-vol (expand)" references: [local.VMs (expand) random_id.id (expand) local.cloud_images (expand)]
+2025-10-26T11:43:19.277-0400 [DEBUG] ReferenceTransformer: "local.network_name (expand)" references: [var.network_name]
+2025-10-26T11:43:19.280-0400 [DEBUG] Starting graph walk: walkApply
+2025-10-26T11:43:19.280-0400 [DEBUG] created provider logger: level=debug
+2025-10-26T11:43:19.281-0400 [INFO]  provider: configuring client automatic mTLS
+2025-10-26T11:43:19.288-0400 [DEBUG] provider: starting plugin: path=.terraform/providers/registry.terraform.io/hashicorp/template/2.2.0/linux_amd64/terraform-provider-template_v2.2.0_x4 args=[".terraform/providers/registry.terraform.io/hashicorp/template/2.2.0/linux_amd64/terraform-provider-template_v2.2.0_x4"]
+2025-10-26T11:43:19.289-0400 [DEBUG] provider: plugin started: path=.terraform/providers/registry.terraform.io/hashicorp/template/2.2.0/linux_amd64/terraform-provider-template_v2.2.0_x4 pid=171937
+2025-10-26T11:43:19.289-0400 [DEBUG] provider: waiting for RPC address: plugin=.terraform/providers/registry.terraform.io/hashicorp/template/2.2.0/linux_amd64/terraform-provider-template_v2.2.0_x4
+2025-10-26T11:43:19.295-0400 [INFO]  provider.terraform-provider-template_v2.2.0_x4: configuring server automatic mTLS: timestamp=2025-10-26T11:43:19.295-0400
+2025-10-26T11:43:19.330-0400 [DEBUG] provider: using plugin: version=5
+2025-10-26T11:43:19.331-0400 [DEBUG] provider.terraform-provider-template_v2.2.0_x4: plugin address: address=/tmp/plugin207070014 network=unix timestamp=2025-10-26T11:43:19.330-0400
+2025-10-26T11:43:19.369-0400 [DEBUG] created provider logger: level=debug
+2025-10-26T11:43:19.369-0400 [INFO]  provider: configuring client automatic mTLS
+2025-10-26T11:43:19.370-0400 [DEBUG] provider.stdio: received EOF, stopping recv loop: err="rpc error: code = Unimplemented desc = unknown service plugin.GRPCStdio"
+2025-10-26T11:43:19.371-0400 [DEBUG] No provider meta schema returned
+2025-10-26T11:43:19.375-0400 [DEBUG] provider: starting plugin: path=.terraform/providers/registry.terraform.io/hashicorp/tls/4.1.0/linux_amd64/terraform-provider-tls_v4.1.0_x5 args=[".terraform/providers/registry.terraform.io/hashicorp/tls/4.1.0/linux_amd64/terraform-provider-tls_v4.1.0_x5"]
+2025-10-26T11:43:19.376-0400 [DEBUG] provider: plugin started: path=.terraform/providers/registry.terraform.io/hashicorp/tls/4.1.0/linux_amd64/terraform-provider-tls_v4.1.0_x5 pid=171955
+2025-10-26T11:43:19.376-0400 [DEBUG] provider: waiting for RPC address: plugin=.terraform/providers/registry.terraform.io/hashicorp/tls/4.1.0/linux_amd64/terraform-provider-tls_v4.1.0_x5
+2025-10-26T11:43:19.381-0400 [INFO]  provider.terraform-provider-tls_v4.1.0_x5: configuring server automatic mTLS: timestamp=2025-10-26T11:43:19.381-0400
+2025-10-26T11:43:19.396-0400 [DEBUG] provider.terraform-provider-tls_v4.1.0_x5: plugin address: network=unix address=/tmp/plugin2031099274 timestamp=2025-10-26T11:43:19.396-0400
+2025-10-26T11:43:19.396-0400 [DEBUG] provider: using plugin: version=5
+2025-10-26T11:43:19.407-0400 [DEBUG] created provider logger: level=debug
+2025-10-26T11:43:19.407-0400 [INFO]  provider: configuring client automatic mTLS
+2025-10-26T11:43:19.415-0400 [DEBUG] provider: starting plugin: path=.terraform/providers/registry.terraform.io/hashicorp/random/3.7.2/linux_amd64/terraform-provider-random_v3.7.2_x5 args=[".terraform/providers/registry.terraform.io/hashicorp/random/3.7.2/linux_amd64/terraform-provider-random_v3.7.2_x5"]
+2025-10-26T11:43:19.415-0400 [DEBUG] provider: plugin started: path=.terraform/providers/registry.terraform.io/hashicorp/random/3.7.2/linux_amd64/terraform-provider-random_v3.7.2_x5 pid=171969
+2025-10-26T11:43:19.415-0400 [DEBUG] provider: waiting for RPC address: plugin=.terraform/providers/registry.terraform.io/hashicorp/random/3.7.2/linux_amd64/terraform-provider-random_v3.7.2_x5
+2025-10-26T11:43:19.420-0400 [INFO]  provider.terraform-provider-random_v3.7.2_x5: configuring server automatic mTLS: timestamp=2025-10-26T11:43:19.419-0400
+2025-10-26T11:43:19.434-0400 [DEBUG] provider: using plugin: version=5
+2025-10-26T11:43:19.434-0400 [DEBUG] provider.terraform-provider-random_v3.7.2_x5: plugin address: address=/tmp/plugin527502266 network=unix timestamp=2025-10-26T11:43:19.434-0400
+2025-10-26T11:43:19.446-0400 [DEBUG] created provider logger: level=debug
+2025-10-26T11:43:19.446-0400 [INFO]  provider: configuring client automatic mTLS
+2025-10-26T11:43:19.452-0400 [DEBUG] provider: starting plugin: path=.terraform/providers/registry.terraform.io/dmacvicar/libvirt/0.8.3/linux_amd64/terraform-provider-libvirt_v0.8.3 args=[".terraform/providers/registry.terraform.io/dmacvicar/libvirt/0.8.3/linux_amd64/terraform-provider-libvirt_v0.8.3"]
+2025-10-26T11:43:19.452-0400 [DEBUG] provider: plugin started: path=.terraform/providers/registry.terraform.io/dmacvicar/libvirt/0.8.3/linux_amd64/terraform-provider-libvirt_v0.8.3 pid=171978
+2025-10-26T11:43:19.452-0400 [DEBUG] provider: waiting for RPC address: plugin=.terraform/providers/registry.terraform.io/dmacvicar/libvirt/0.8.3/linux_amd64/terraform-provider-libvirt_v0.8.3
+2025-10-26T11:43:19.459-0400 [INFO]  provider.terraform-provider-libvirt_v0.8.3: configuring server automatic mTLS: timestamp=2025-10-26T11:43:19.458-0400
+2025-10-26T11:43:19.475-0400 [DEBUG] provider: using plugin: version=5
+2025-10-26T11:43:19.475-0400 [DEBUG] provider.terraform-provider-libvirt_v0.8.3: plugin address: address=/tmp/plugin3035859238 network=unix timestamp=2025-10-26T11:43:19.475-0400
+2025-10-26T11:43:19.488-0400 [DEBUG] created provider logger: level=debug
+2025-10-26T11:43:19.488-0400 [INFO]  provider: configuring client automatic mTLS
+2025-10-26T11:43:19.494-0400 [DEBUG] provider: starting plugin: path=.terraform/providers/registry.terraform.io/hashicorp/time/0.13.1/linux_amd64/terraform-provider-time_v0.13.1_x5 args=[".terraform/providers/registry.terraform.io/hashicorp/time/0.13.1/linux_amd64/terraform-provider-time_v0.13.1_x5"]
+2025-10-26T11:43:19.495-0400 [DEBUG] provider: plugin started: path=.terraform/providers/registry.terraform.io/hashicorp/time/0.13.1/linux_amd64/terraform-provider-time_v0.13.1_x5 pid=171991
+2025-10-26T11:43:19.495-0400 [DEBUG] provider: waiting for RPC address: plugin=.terraform/providers/registry.terraform.io/hashicorp/time/0.13.1/linux_amd64/terraform-provider-time_v0.13.1_x5
+2025-10-26T11:43:19.499-0400 [INFO]  provider.terraform-provider-time_v0.13.1_x5: configuring server automatic mTLS: timestamp=2025-10-26T11:43:19.499-0400
+2025-10-26T11:43:19.514-0400 [DEBUG] provider: using plugin: version=5
+2025-10-26T11:43:19.514-0400 [DEBUG] provider.terraform-provider-time_v0.13.1_x5: plugin address: address=/tmp/plugin3583811791 network=unix timestamp=2025-10-26T11:43:19.514-0400
+2025-10-26T11:43:19.525-0400 [DEBUG] created provider logger: level=debug
+2025-10-26T11:43:19.525-0400 [INFO]  provider: configuring client automatic mTLS
+2025-10-26T11:43:19.531-0400 [DEBUG] provider: starting plugin: path=.terraform/providers/registry.terraform.io/hashicorp/local/2.5.3/linux_amd64/terraform-provider-local_v2.5.3_x5 args=[".terraform/providers/registry.terraform.io/hashicorp/local/2.5.3/linux_amd64/terraform-provider-local_v2.5.3_x5"]
+2025-10-26T11:43:19.532-0400 [DEBUG] provider: plugin started: path=.terraform/providers/registry.terraform.io/hashicorp/local/2.5.3/linux_amd64/terraform-provider-local_v2.5.3_x5 pid=172004
+2025-10-26T11:43:19.532-0400 [DEBUG] provider: waiting for RPC address: plugin=.terraform/providers/registry.terraform.io/hashicorp/local/2.5.3/linux_amd64/terraform-provider-local_v2.5.3_x5
+2025-10-26T11:43:19.536-0400 [INFO]  provider.terraform-provider-local_v2.5.3_x5: configuring server automatic mTLS: timestamp=2025-10-26T11:43:19.536-0400
+2025-10-26T11:43:19.551-0400 [DEBUG] provider: using plugin: version=5
+2025-10-26T11:43:19.551-0400 [DEBUG] provider.terraform-provider-local_v2.5.3_x5: plugin address: address=/tmp/plugin107461661 network=unix timestamp=2025-10-26T11:43:19.551-0400
+2025-10-26T11:43:19.563-0400 [INFO]  provider.terraform-provider-libvirt_v0.8.3: 2025/10/26 11:43:19 [DEBUG] Configuring provider for 'qemu:///system': &{map[uri:0xc00027de00] 0xc000302f50 <nil> 0xc00030a680 map[] <nil> {{<nil>} <nil>} 0xc00011e2e0 0xc000010420 0xc0005205b0 false {{{} 1} {0 0}} false false}: timestamp=2025-10-26T11:43:19.563-0400
+2025-10-26T11:43:19.563-0400 [DEBUG] provider.terraform-provider-tls_v4.1.0_x5: Configuring provider: @caller=github.com/hashicorp/terraform-provider-tls/internal/provider/provider.go:109 @module=tls tf_provider_addr=registry.terraform.io/hashicorp/tls tf_req_id=814d75f7-bf87-2695-8923-28b74648325b tf_rpc=Configure timestamp=2025-10-26T11:43:19.563-0400
+2025-10-26T11:43:19.563-0400 [DEBUG] provider.terraform-provider-tls_v4.1.0_x5: No proxy configuration detected: using provider defaults: @module=tls tf_provider_addr=registry.terraform.io/hashicorp/tls tf_req_id=814d75f7-bf87-2695-8923-28b74648325b tf_rpc=Configure @caller=github.com/hashicorp/terraform-provider-tls/internal/provider/provider.go:126 timestamp=2025-10-26T11:43:19.563-0400
+2025-10-26T11:43:19.564-0400 [DEBUG] provider.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = error reading from server: EOF"
+2025-10-26T11:43:19.564-0400 [INFO]  provider: plugin process exited: plugin=.terraform/providers/registry.terraform.io/hashicorp/random/3.7.2/linux_amd64/terraform-provider-random_v3.7.2_x5 id=171969
+2025-10-26T11:43:19.564-0400 [DEBUG] provider: plugin exited
+2025-10-26T11:43:19.564-0400 [DEBUG] provider.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = error reading from server: EOF"
+2025-10-26T11:43:19.565-0400 [INFO]  provider: plugin process exited: plugin=.terraform/providers/registry.terraform.io/hashicorp/tls/4.1.0/linux_amd64/terraform-provider-tls_v4.1.0_x5 id=171955
+2025-10-26T11:43:19.565-0400 [DEBUG] provider: plugin exited
+2025-10-26T11:43:19.566-0400 [DEBUG] provider.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = error reading from server: EOF"
+2025-10-26T11:43:19.567-0400 [INFO]  provider: plugin process exited: plugin=.terraform/providers/registry.terraform.io/hashicorp/local/2.5.3/linux_amd64/terraform-provider-local_v2.5.3_x5 id=172004
+2025-10-26T11:43:19.567-0400 [DEBUG] provider: plugin exited
+2025-10-26T11:43:19.568-0400 [INFO]  provider: plugin process exited: plugin=.terraform/providers/registry.terraform.io/hashicorp/template/2.2.0/linux_amd64/terraform-provider-template_v2.2.0_x4 id=171937
+2025-10-26T11:43:19.568-0400 [DEBUG] provider: plugin exited
+2025-10-26T11:43:19.590-0400 [INFO]  provider.terraform-provider-libvirt_v0.8.3: 2025/10/26 11:43:19 [INFO] libvirt client libvirt version: 10010000: timestamp=2025-10-26T11:43:19.590-0400
+2025-10-26T11:43:19.591-0400 [DEBUG] provider.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = error reading from server: EOF"
+2025-10-26T11:43:19.592-0400 [INFO]  provider: plugin process exited: plugin=.terraform/providers/registry.terraform.io/hashicorp/time/0.13.1/linux_amd64/terraform-provider-time_v0.13.1_x5 id=171991
+2025-10-26T11:43:19.592-0400 [DEBUG] provider: plugin exited
+2025-10-26T11:43:19.605-0400 [WARN]  Provider "registry.terraform.io/dmacvicar/libvirt" produced an invalid plan for libvirt_domain.domain-os["2-rocky9"], but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .description: planned value cty.StringVal("") for a non-computed attribute
+      - .cmdline: planned value cty.ListValEmpty(cty.Map(cty.String)) for a non-computed attribute
+      - .fw_cfg_name: planned value cty.StringVal("opt/com.coreos/config") for a non-computed attribute
+      - .running: planned value cty.True for a non-computed attribute
+      - .type: planned value cty.StringVal("kvm") for a non-computed attribute
+      - .kernel: planned value cty.StringVal("") for a non-computed attribute
+      - .initrd: planned value cty.StringVal("") for a non-computed attribute
+      - .qemu_agent: planned value cty.False for a non-computed attribute
+      - .console[0].source_host: planned value cty.StringVal("127.0.0.1") for a non-computed attribute
+      - .console[0].source_path: planned value cty.StringVal("") for a non-computed attribute
+      - .console[0].source_service: planned value cty.StringVal("0") for a non-computed attribute
+      - .console[1].source_host: planned value cty.StringVal("127.0.0.1") for a non-computed attribute
+      - .console[1].source_path: planned value cty.StringVal("") for a non-computed attribute
+      - .console[1].source_service: planned value cty.StringVal("0") for a non-computed attribute
+      - .cpu: block count in plan (1) disagrees with count in config (0)
+      - .disk[0].url: planned value cty.StringVal("") for a non-computed attribute
+      - .disk[0].block_device: planned value cty.StringVal("") for a non-computed attribute
+      - .disk[0].file: planned value cty.StringVal("") for a non-computed attribute
+      - .disk[0].scsi: planned value cty.False for a non-computed attribute
+      - .graphics[0].listen_address: planned value cty.StringVal("127.0.0.1") for a non-computed attribute
+      - .graphics[0].websocket: planned value cty.NumberIntVal(0) for a non-computed attribute
+      - .network_interface[0].bridge: planned value cty.StringVal("") for a non-computed attribute
+      - .network_interface[0].macvtap: planned value cty.StringVal("") for a non-computed attribute
+      - .network_interface[0].passthrough: planned value cty.StringVal("") for a non-computed attribute
+      - .network_interface[0].private: planned value cty.StringVal("") for a non-computed attribute
+      - .network_interface[0].vepa: planned value cty.StringVal("") for a non-computed attribute
+libvirt_domain.domain-os["2-rocky9"]: Modifying... [id=8c1c2b71-2141-4626-aebd-642e250af6a1]
+2025-10-26T11:43:19.605-0400 [INFO]  Starting apply for libvirt_domain.domain-os["2-rocky9"]
+2025-10-26T11:43:19.608-0400 [DEBUG] libvirt_domain.domain-os["2-rocky9"]: applying the planned Update change
+2025-10-26T11:43:19.612-0400 [INFO]  provider.terraform-provider-libvirt_v0.8.3: 2025/10/26 11:43:19 [DEBUG] Update resource libvirt_domain: timestamp=2025-10-26T11:43:19.612-0400
+libvirt_domain.domain-os["2-rocky9"]: Modifications complete after 0s [id=8c1c2b71-2141-4626-aebd-642e250af6a1]
+2025-10-26T11:43:19.641-0400 [DEBUG] State storage *statemgr.Filesystem declined to persist a state snapshot
+2025-10-26T11:43:19.642-0400 [INFO]  provider.terraform-provider-libvirt_v0.8.3: 2025/10/26 11:43:19 [DEBUG] cleaning up connection for URI: qemu:///system: timestamp=2025-10-26T11:43:19.642-0400
+2025-10-26T11:43:19.642-0400 [DEBUG] provider.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = error reading from server: EOF"
+2025-10-26T11:43:19.643-0400 [INFO]  provider: plugin process exited: plugin=.terraform/providers/registry.terraform.io/dmacvicar/libvirt/0.8.3/linux_amd64/terraform-provider-libvirt_v0.8.3 id=171978
+2025-10-26T11:43:19.643-0400 [DEBUG] provider: plugin exited
+
+Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
+
+Outputs:
+
+VMs = [
+  "ssh ubuntu@192.168.100.210 k8scp-ubuntu-1",
+  "ssh fedora@192.168.100.126 k8swr-fedora-2",
+  "ssh rocky9@192.168.100.49 k8swr-rocky9-3",
+]
+etcHosts = <<EOT
+cat << EOF | sudo tee -a /etc/hosts
+192.168.100.210 k8scp-ubuntu-1
+192.168.100.126 k8swr-fedora-2
+192.168.100.49 k8swr-rocky9-3
+EOF
+EOT
+private_key = <sensitive>
+public_key = <sensitive>
