@@ -1,14 +1,14 @@
 resource "libvirt_domain" "domain-os" {
-  for_each   = {for idx, vm in local.VMs: "${idx}-${vm.os}" => vm}
+  for_each = { for idx, vm in local.VMs : "${idx}-${vm.os}" => vm }
 
-  name = each.value.hostname
-  memory = local.vm_spec[each.value.type].vmem
-  vcpu   = local.vm_spec[each.value.type].vcpu
+  name      = each.value.hostname
+  memory    = local.vm_spec[each.value.type].vmem
+  vcpu      = local.vm_spec[each.value.type].vcpu
   cloudinit = libvirt_cloudinit_disk.cloud-init[each.key].id
-  
+
   // Needed for Rocky 9.6
   //machine = "pc-q35-rhel9.6.0"
-  machine =  each.value.os == "rocky9" ? "pc-q35-rhel9.6.0" : "pc"
+  machine = each.value.os == "rocky9" ? "pc-q35-rhel9.6.0" : "pc"
 
   # filesystem {
   #   source     = var.fs_share
@@ -18,8 +18,8 @@ resource "libvirt_domain" "domain-os" {
   # }
 
   network_interface {
-    network_name = "default"
-    addresses    = [each.value.ip]
+    network_name   = "default"
+    addresses      = [each.value.ip]
     mac            = each.value.mac
     wait_for_lease = true
   }
@@ -74,7 +74,7 @@ resource "libvirt_domain" "domain-os" {
 #     content = local.etc_hosts
 #     destination = local.etc_hosts_extra_script_path
 #   }
-  
+
 #   connection {
 #      type     = "ssh"
 #     host = libvirt_domain.domain-os[each.key].network_interface.0.addresses[0]
