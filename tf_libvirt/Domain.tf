@@ -7,6 +7,10 @@ locals {
        "machine": "pc-q35-rhel9.6.0",
        xlst_fname: "xslt/rocky-host-rocky9-guest.xsl",
     },
+    "fedora-rocky9": {
+       "machine": "pc",
+       xlst_fname: "xslt/fedora-host-rocky9-guest.xsl",
+    },
     "ubuntu-rocky9": {
        "machine": "q35",
        xlst_fname: "xslt/ubuntu-host-rocky9-guest.xsl",
